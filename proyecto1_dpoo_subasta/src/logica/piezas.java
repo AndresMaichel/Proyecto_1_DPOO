@@ -1,5 +1,6 @@
-package Logica;
-abstract class Pieza {
+package logica;
+
+abstract class piezas {
     protected String titulo;
     protected int anio;
     protected String[] autores;
@@ -9,8 +10,7 @@ abstract class Pieza {
     protected String propietarioActual;
     protected String ubicacionActual;
 
-    // Constructor
-    public Pieza(String titulo, int anio, String[] autores, String lugarCreacion, boolean disponibilidadVenta,
+    public piezas(String titulo, int anio, String[] autores, String lugarCreacion, boolean disponibilidadVenta,
                 String[] propietariosAnteriores, String propietarioActual, String ubicacionActual) {
         this.titulo = titulo;
         this.anio = anio;
@@ -21,4 +21,11 @@ abstract class Pieza {
         this.propietarioActual = propietarioActual;
         this.ubicacionActual = ubicacionActual;
     }
+
+    // Métodos abstractos
+    
+    
+    public abstract void mostrarInformacion();
+    public abstract void cambiarLugarCreacion(String nuevoLugar);
+    public abstract void cambiarPropietario(String nuevoPropietario);
 }
