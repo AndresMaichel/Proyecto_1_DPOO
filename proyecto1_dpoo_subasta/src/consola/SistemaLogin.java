@@ -3,7 +3,8 @@ package consola;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import logica.MenuTrabajadores;
+import menu.MenuClientes;
+import menu.MenuTrabajadores;
 public class SistemaLogin {
 
 	// Map user y password
@@ -42,9 +43,12 @@ public class SistemaLogin {
 		String usuario = scanner.nextLine();
 		System.out.println("Ingrese su contraseña:");
 		String contraseña = scanner.nextLine();
-		MenuTrabajadores rol = new MenuTrabajadores();
+		
+		
 		if (usuarios.containsKey(usuario) && usuarios.get(usuario).equals(contraseña)) {
 			System.out.println("Inicio de sesión exitoso.");
+			System.out.println("Seleccione su rol:");
+		
 			while (true) {
 				System.out.println("1. Cliente");
 				System.out.println("2. Trabajador");
@@ -54,14 +58,12 @@ public class SistemaLogin {
 				scanner.nextLine();
 				switch (opcion) {
 				case 1:
-					System.out.println("Has seleccionado la opción de cliente.");
-					// Lógica para el rol de cliente
-
+					System.out.println("Entrando a cliente...");
+					MenuClientes.main(null);;
 					break;
 				case 2:
-					System.out.println("Has seleccionado la opción de Trabajador.");
-					// Lógica para el rol de usuario
-						rol();
+					System.out.println("Entrando a trabajador trabajador...");
+					MenuTrabajadores.main(null);
 					break;
 				case 3:
 					System.out.println("Cerrando sesión...");
