@@ -3,8 +3,12 @@ package consola;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import menu.MenuClientes;
-import menu.MenuTrabajadores;
+import menu.MenuAdministrador;
+import menu.MenuCajero;
+import menu.MenuComprador;
+import menu.MenuOperador;
+import menu.MenuPropietario;
+
 public class SistemaLogin {
 
 	// Map user y password
@@ -37,7 +41,7 @@ public class SistemaLogin {
 			}
 		}
 	}
-
+	
 	private static void iniciarSesion(Scanner scanner) {
 		System.out.println("Ingrese su nombre de usuario:");
 		String usuario = scanner.nextLine();
@@ -50,22 +54,37 @@ public class SistemaLogin {
 			System.out.println("Seleccione su rol:");
 		
 			while (true) {
-				System.out.println("1. Cliente");
-				System.out.println("2. Trabajador");
-				System.out.println("3. Cerrar sesión");
+				System.out.println("1. Administrador");
+				System.out.println("2. Cajero");
+				System.out.println("3. Operador");
+				System.out.println("4. Propietario");
+				System.out.println("5. Comprador");
+				System.out.println("6. Cerrar sesión");
 				System.out.println("Seleccione una opción:");
 				int opcion = scanner.nextInt();
 				scanner.nextLine();
 				switch (opcion) {
 				case 1:
-					System.out.println("Entrando a cliente...");
-					MenuClientes.main(null);;
+					System.out.println("Entrando a Administrador...");
+					MenuAdministrador.main(null);
 					break;
 				case 2:
-					System.out.println("Entrando a trabajador trabajador...");
-					MenuTrabajadores.main(null);
+					System.out.println("Entrando a Cajero ...");
+					MenuCajero.main(null);
 					break;
 				case 3:
+					System.out.println("Entrando a Operador ...");
+					MenuOperador.main(null);
+					break;
+				case 4:
+					System.out.println("Entrando a Propietario...");
+					MenuPropietario.main(null);
+					break;
+				case 5:
+					System.out.println("Entrando a Comprador...");
+					MenuComprador.main(null);
+					break;
+				case 7:
 					System.out.println("Cerrando sesión...");
 					return;
 				default:
@@ -75,6 +94,7 @@ public class SistemaLogin {
 		} else {
 			System.out.println("Nombre de usuario o contraseña incorrectos.");
 		}
+		scanner.close();
 	}
 
 	private static void registrarUsuario(Scanner scanner) {

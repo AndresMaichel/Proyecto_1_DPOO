@@ -1,4 +1,4 @@
-package logica;
+package piezas;
 
 abstract class piezas {
     protected String titulo;
